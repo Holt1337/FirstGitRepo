@@ -1,2 +1,1 @@
-#Hello world
-My text
+Задание 3. Docker

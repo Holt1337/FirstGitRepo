@@ -8,7 +8,7 @@ while [ $# -gt 0 ]
 do
     key=$1
     
-    case $key in # --port 8898 (PORT=8898)
+    case $key in 
         --input_folder)
             INPUT_FOLDER=$2
             shift 2
@@ -33,10 +33,7 @@ do
 done
 
 mkdir $BACKUP_FOLDER  &> /dev/null
-#echo $INPUT_FOLDER, $EXTENSION, $BACKUP_FOLDER, $ARCHIVE_NAME
 
-#find $INPUT_FOLDER -iname $EXTANSION -exec cp {} $BACKUP_FOLDER \;
-#cp -i -R $(find ${INPUT_FOLDER} -name ${EXTANSION}) $BACKUP_FOLDER
 find $INPUT_FOLDER -name $EXTENSION -exec cp -rp --parent {} $BACKUP_FOLDER \;
 tar -cvf $ARCHIVE_NAME $BACKUP_FOLDER  &> /dev/null
 echo done
